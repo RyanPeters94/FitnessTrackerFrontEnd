@@ -1,0 +1,21 @@
+import Home from "./routes/Home";
+import Register from "./routes/Register.js";
+import Login from "./routes/Login.js";
+import Profile from "./routes/Profile.js";
+import Routines from "./routes/Routines";
+import Activities from "./routes/Activities";
+import MyRoutines from "./routes/my_routines";
+import CreateActivity from "./routes/CreateActivity";
+import CreateRoutine from "./routes/CreateRoutine";
+import UpdateRoutine from "./routes/UpdateRoutine";
+
+export { default as Home } from "./routes/Home.js";
+export { default as Register } from "./routes/Register.js";
+export { default as Login } from "./routes/Login.js";
+export { default as Profile } from "./routes/Profile.js";
+export { default as Routines } from "./routes/Routines.js";
+export { default as Activities } from "./routes/Activities.js";
+export { default as MyRoutines } from "./routes/my_routines.js";
+export { default as CreateActivity } from "./routes/CreateActivity";
+export { default as CreateRoutine } from "./routes/CreateRoutine";
+export { default as UpdateRoutine } from "./routes/UpdateRoutine";
