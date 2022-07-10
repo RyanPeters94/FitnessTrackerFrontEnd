@@ -10,10 +10,45 @@ import {
   ListIcon,
   VStack,
   Button,
+  Heading,
+  Stat,
+  StatLabel,
+  StatNumber,
+  chakra,
+  SimpleGrid,
+  Image,
+  Flex
 } from "@chakra-ui/react";
 import { deleteRoutine } from "./UpdateRoutine";
-import { createRoutine } from "./CreateRoutine";
+import { images } from "../components";
 import { CheckIcon } from "@chakra-ui/icons";
+
+
+function StatsCard(props: StatsCardProps) {
+  const navigate = useNavigate();
+  const { title, stat, route } = props;
+  return (
+    <Stat
+      px={{ base: 4, md: 8 }}
+      py={"5"}
+      shadow={"xl"}
+      border={"1px solid"}
+      rounded={"lg"}
+      padding={"15px"}
+      mb={"7vh"}
+      textAlign={"center"}
+      _hover={{ cursor: "pointer" }}
+      onClick={() => navigate(`${route}`, { replace: true })}
+    >
+      <StatLabel fontWeight={"medium"} route={route}>
+        {title}
+      </StatLabel>
+      <StatNumber fontSize={"2xl"} fontWeight={"medium"}>
+        {stat}
+      </StatNumber>
+    </Stat>
+  );
+}
 
 const MyRoutines = ({ token, routines }) => {
   const [myRoutines, setMyRoutines] = useState([]);
@@ -126,7 +161,73 @@ const MyRoutines = ({ token, routines }) => {
               </Box>
             </Center>
           ))
-        : null}
+        : <Box
+        bg={"#C7BEA2"}
+        >
+        <VStack
+          textAlign={"center"}
+          p={6}
+          color={"black"}
+          align={"center"}
+        >
+        <Heading> 
+          You have No Routines yet, Please visit our Routines page to Create a Routine!
+        </Heading>
+        <Box
+        maxW="7xl"
+        mx={"auto"}
+        pt={5}
+        px={{ base: 2, sm: 12, md: 17 }}
+        bg={"#C7BEA2"}
+        justifyItems={"center"}
+      >
+        <chakra.h1>
+          Thank you for Using Fitness Tracker by Ryan Peters
+        </chakra.h1>
+        <Flex justifyContent={"center"} padding={"10px"} >
+          <Image
+              opacity={0.2}
+              src={images.Logo}
+              h={"150px"}
+              w={"150px"}
+
+            >
+
+          </Image>
+        </Flex>
+        <chakra.h1
+          textAlign={"center"}
+          fontSize={"4xl"}
+          py={10}
+          fontWeight={"bold"}
+        >
+          Click below to be redirected to: 
+        </chakra.h1>
+        <SimpleGrid
+          columns={{ base: 1, md: 3 }}
+          spacing={{ base: 5, lg: 8 }}
+          justifyContent={"center"}
+        >
+          <StatsCard
+            title={"Click here for "}
+            stat={"Routines"}
+            route={"../routines"}
+          />
+          <StatsCard
+            title={"Click here for "}
+            stat={"All Activities"}
+            route={"../activities"}
+          />
+          <StatsCard
+            title={"Click here for "}
+            stat={"Home Page"}
+            route={"../home"}
+          />
+        </SimpleGrid>
+      </Box>
+        </VStack>
+        </Box>
+        }
     </Box>
   );
 };

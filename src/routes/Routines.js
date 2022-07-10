@@ -46,6 +46,32 @@ const Routines = () => {
 
   return (
     <Box bg={"#C7BEA2"}>
+    <Box textAlign="center" py={10} px={6}>
+        <Heading as="h2" size="xl" mt={6} mb={2}>
+          Create a Routine
+        </Heading>
+        <Text color={"gray.500"}>
+          If you would like to take your fitness journey to the next step Click
+          below to create your own Routine!
+        </Text>
+        <Button
+          mt={10}
+          w={"full"}
+          bg={"blue.400"}
+          color={"white"}
+          rounded={"xl"}
+          boxShadow={"0 5px 20px 0px rgb(72 187 120 / 43%)"}
+          _hover={{
+            bg: "blue.500",
+          }}
+          _focus={{
+            bg: "green.500",
+          }}
+          onClick={() => navigate("../create-routine", { replace: true })}
+        >
+          Click Here to Create a Routine
+        </Button>
+      </Box>
       {routines.map((routine) => (
         <Center py={6}>
           <Box
@@ -99,32 +125,6 @@ const Routines = () => {
           </Box>
         </Center>
       ))}
-      <Box textAlign="center" py={10} px={6}>
-        <Heading as="h2" size="xl" mt={6} mb={2}>
-          Create a Routine
-        </Heading>
-        <Text color={"gray.500"}>
-          If you would like to take your fitness journey to the next step Click
-          below to create your own Routine!
-        </Text>
-        <Button
-          mt={10}
-          w={"full"}
-          bg={"blue.400"}
-          color={"white"}
-          rounded={"xl"}
-          boxShadow={"0 5px 20px 0px rgb(72 187 120 / 43%)"}
-          _hover={{
-            bg: "blue.500",
-          }}
-          _focus={{
-            bg: "green.500",
-          }}
-          onClick={() => navigate("../create-routine", { replace: true })}
-        >
-          Click Here to Create a Routine
-        </Button>
-      </Box>
     </Box>
   );
 };

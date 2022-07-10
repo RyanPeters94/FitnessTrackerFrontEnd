@@ -86,7 +86,8 @@ const UpdateRoutine = ({ routines, setRoutines }) => {
     }
     setName("");
     setGoal("");
-    setIsPublic(true);
+    //need to fix updated boolean value
+    setIsPublic();
     setRoutine(data);
     setRoutineMessage(data);
     onOpen();
@@ -115,7 +116,7 @@ const UpdateRoutine = ({ routines, setRoutines }) => {
               onChange={(e) => setGoal(e.target.value)}
             />
           </FormControl>
-          <Select placeholder="Select Publicity Option">
+          <Select placeholder="Set Publicity Value">
             <option
               type="boolean"
               value={true}
