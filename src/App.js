@@ -144,7 +144,7 @@ function App() {
         </Flex>
       </Box>
       <Routes>
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<Home  token={token} />} />
         <Route path="profile" element={<Profile token={token} />} />
         <Route path="login" element={<Login setToken={setToken} />} />
         <Route path="register" element={<Register setToken={setToken} />} />

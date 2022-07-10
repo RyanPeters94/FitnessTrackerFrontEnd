@@ -35,7 +35,7 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
   );
 };
 
-function Home() {
+function Home(token) {
   let navigate = useNavigate();
   return (
     <div style={{ backgroundColor: "#C7BEA2" }}>
@@ -68,7 +68,7 @@ function Home() {
               Register or Sign in to Create a Routine or Activity and begin your
               fitness Journey.
             </Text>
-            <Stack direction={{ base: "column", md: "row" }} spacing={4}>
+            {!token ? ( <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               <Button
                 rounded={"full"}
                 bg={"blue.400"}
@@ -85,8 +85,8 @@ function Home() {
                 onClick={() => navigate("./login", { replace: true })}
               >
                 Login
-              </Button>
-            </Stack>
+              </Button> 
+            </Stack> ) : null }
           </Stack>
         </Flex>
         <Flex flex={1}>
